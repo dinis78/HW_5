@@ -24,48 +24,52 @@ os.system("cls")
 #a) Добавьте игру против бота
 #b) Подумайте как наделить бота ""интеллектом""
 
-# import random
+import random
 
 
-# x=int(1021)
-# print('Остаток конфет', x)
+x=int(121)
+print('Остаток конфет', x)
 
-# while x>0:
+while x>0:
      
 
-#     a=int(input('Игрок №1 введите число от 1 до 28 '))
-#     while a>28 or a<=0 or a>x:
-#         a=int(input('Игрок №1 введите число от 1 до 28 '))
-#     x=x-a
-#     print('Остаток конфет', x)  
-#     if x==0:
-#         print('Игрок №1 ВЫИГРАЛ!!!') 
-#         break 
+    a=int(input('Игрок №1 введите число от 1 до 28 '))
+    while a>28 or a<=0 or a>x:
+        a=int(input('Игрок №1 введите число от 1 до 28 '))
+    x=x-a
+    print('Остаток конфет', x)  
+    if x==0:
+        print('Игрок №1 ВЫИГРАЛ!!!') 
+        break 
 
-#     # b=int(input('Игрок №2 введите число от 1 до 28 '))
-#     # while b>28 or b<=0 or b>x:
-#     #     b=int(input('Игрок №2 введите число от 1 до 28 '))
-#     # x=x-b    
-#     # print('Остаток конфет', x)
-#     # if x==0:
-#     #     print('Игрок №2 ВЫИГРАЛ!!!' )
-#     #     break
+    # b=int(input('Игрок №2 введите число от 1 до 28 '))
+    # while b>28 or b<=0 or b>x:
+    #     b=int(input('Игрок №2 введите число от 1 до 28 '))
+    # x=x-b    
+    # print('Остаток конфет', x)
+    # if x==0:
+    #     print('Игрок №2 ВЫИГРАЛ!!!' )
+    #     break
         
-    ## игра бота против игрока №1    
+    # игра бота против игрока №1    
     
-#     c= 29-a
-#     elif x<=56:
-#         c=x-29
-#     elif x<=28:
-#         c=x  
-#     print('Ходит БОТ', c) 
-#     x=x-c    
+    
+    
+    if x<=56:
+        c=x-29
+    else:
+         c=29-a
+
+    if x<=28:
+        c=x  
+    print('Ходит БОТ', c) 
+    x=x-c    
         
 
-#     print('Остаток конфет', x)
-#     if x==0:
-#         print('БОТ ВЫИГРАЛ!!!' )
-#         break
+    print('Остаток конфет', x)
+    if x==0:
+        print('БОТ ВЫИГРАЛ!!!' )
+        break
     
 #########################################################
 
@@ -144,50 +148,50 @@ os.system("cls")
 # with open('encod.txt','w') as enc:
 #     enc.write ('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW')
 
-def rle_encode (data):            # кодируем текст
-    encoding = ''
-    prev_char = ''
-    count = 1
-    if not data:
-        return ''
-    for char in data:
-        if char != prev_char:
-            if prev_char:
-                encoding += str(count) + prev_char
-            count=1
-            prev_char=char
-        else:
-            count+=1
-    else:
-        encoding+=str(count) + prev_char
-        return encoding        
+# def rle_encode (data):            # кодируем текст
+#     encoding = ''
+#     prev_char = ''
+#     count = 1
+#     if not data:
+#         return ''
+#     for char in data:
+#         if char != prev_char:
+#             if prev_char:
+#                 encoding += str(count) + prev_char
+#             count=1
+#             prev_char=char
+#         else:
+#             count+=1
+#     else:
+#         encoding+=str(count) + prev_char
+#         return encoding        
 
-with open ('encod.txt', 'r') as enc:  # открываем из файла текст
-    file=enc.readline()
-    print(file)
-    encoded_val = rle_encode(file)   
-print(encoded_val)
+# with open ('encod.txt', 'r') as enc:  # открываем из файла текст
+#     file=enc.readline()
+#     print(file)
+#     encoded_val = rle_encode(file)   
+# print(encoded_val)
 
-with open('encoded.txt','w') as ened:  # отправляем в файл закодированный текст
-    ened.write(encoded_val)
+# with open('encoded.txt','w') as ened:  # отправляем в файл закодированный текст
+#     ened.write(encoded_val)
     
 
-def rle_decode(data):   # раскодируем текст
-    decode = ''
-    count = ''
-    for char in data:
-        if char.isdigit():
-            count += char
-        else:
-            decode += char * int(count)
-            count = ''
-    return decode
+# def rle_decode(data):   # раскодируем текст
+#     decode = ''
+#     count = ''
+#     for char in data:
+#         if char.isdigit():
+#             count += char
+#         else:
+#             decode += char * int(count)
+#             count = ''
+#     return decode
 
-with open ('encoded.txt', 'r') as ened:  # открываем из файла закодированный текст
-    file_1=ened.readline()
-    print(file_1)
-    decoded_val = rle_decode(file_1)   
-print(decoded_val)
+# with open ('encoded.txt', 'r') as ened:  # открываем из файла закодированный текст
+#     file_1=ened.readline()
+#     print(file_1)
+#     decoded_val = rle_decode(file_1)   
+# print(decoded_val)
 
 
      
