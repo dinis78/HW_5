@@ -27,7 +27,7 @@ os.system("cls")
 import random
 
 
-x=int(121)
+x=int(1021)
 print('Остаток конфет', x)
 
 while x>0:
